@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+       <style>
+ * {
+     box-sizing: border-box;
+ }
+ *:focus {
+     outline: none;
+ }
+ .login {
+     margin: 20px auto;
+     width: 300px;
+ }
+ .login-screen {
+     background-color: #FFF;
+     padding: 20px;
+     border-radius: 5px
+ }
+ .app-title {
+     text-align: center;
+     color: #777;
+     font-size: 12px;
+     text-transform: uppercase;
+     font-family: courier;
+ }
+ .login-form {
+     text-align: center;
+ }
+ .control-group {
+     margin-bottom: 10px;
+ }
+ .btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+ #outputInfo {
+     color: red;
+     font-family: arial;
+     font-size: 11px;
+ }
+ #outputPassword {
+     background-color: #ff9;
+ }
+ .tt-dropdown-menu {
+     background-color: #ECF0F1;
+     border: 1px solid #3498DB;
+     text-align: left;
+     width: 250px;
+     padding: 0 0 0 10px;
+     font-size: 15px;
+ }
+ input {
+     text-align: center;
+     background-color: #ECF0F1;
+     border: 2px solid transparent;
+     border-radius: 3px;
+     font-size: 16px;
+     font-weight: 200;
+     padding: 10px 0;
+     width: 250px;
+     transition: border .5s;
+ }
+ input:focus {
+     border: 2px solid #3498DB;
+     box-shadow: none;
+ }
+ .btn {
+     border: 2px solid transparent;
+     background: #3498DB;
+     color: #ffffff;
+     font-size: 16px;
+     line-height: 25px;
+     padding: 10px 0;
+     text-decoration: none;
+     text-shadow: none;
+     border-radius: 3px;
+     box-shadow: none;
+     transition: 0.25s;
+     display: block;
+     width: 250px;
+     margin: 0 auto;
+ }
+ .btn:hover {
+     background-color: #2980B9;
+ }
+ .help {
+     padding: 10px 0;
+ }
+ .left {
+     float: left;
+ }
+ .right {
+     float: right;
+ }
+ .login-link {
+     font-size: 12px;
+     color: #444;
+     display: block;
+ }
+ #info {
+     display: none;
+     margin: 10px 0;
+ }
+ #info.active {
+     display: block;
+ }
+
+ p {
+     font-size: 14px;
+     color: #666;
+ }
+ #modal-footer {
+     text-align: center;
+     background-color: yellow;
+     color: black;
+ }
+ h1,canvas{
+  display:inline;
+}
+</style>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+    <script src="http://rawgit.com/neerajvashistha/passwordGen/gh-pages/javascripts/jquery.js"></script>
+    <script src="http://rawgit.com/neerajvashistha/passwordGen/gh-pages/javascripts/bcrypt.js"></script>
+    <script src="http://rawgit.com/neerajvashistha/passwordGen/gh-pages/javascripts/function.js"></script>
+    <script src="http://rawgit.com/neerajvashistha/passwordGen/gh-pages/javascripts/typeahead.js"></script>
+    <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.8/clipboard.min.js"></script>
+    <title>Passwordgen by neerajvashistha</title>
+  </head>
+
+  <body>
+
+<div style="text-align:center;">
+
+        <h1 style="color:#B5E853;font-size: 30px;line-height: 1.5;font-weight: bold;
+    font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;">.</h1>
+    <canvas id="myCanvas" width="30" height="40" style="border:0px solid #d3d3d3;">/</canvas>
+    <h1 style="color:#B5E853;font-size: 30px;line-height: 1.5;font-weight: bold;
+    font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;">passwordGen</h1>
+
+        <h2>Generate Unique Password</h2>
+        </div>
+<header></header>
+<script>
+    var canvas = document.getElementById("myCanvas");
+    var dc     = canvas.getContext("2d");
+    var angle = 0;
+    window.setInterval(function(){
+    angle = (angle + 1) % 360;
+    dc.clearRect(0, 0, canvas.width, canvas.height);
+    dc.save();
+    dc.fillStyle = "#B5E853"
+    dc.translate(12.5,22.5);
+    dc.rotate( angle*Math.PI/180 ); 
+    dc.translate(-12.5,-22.5);
+
+    dc.beginPath();
+    dc.moveTo(10, 10);
+    dc.lineTo(15, 10);
+    dc.lineTo(15,35);
+    dc.lineTo(10,35);
+    dc.closePath();
+    dc.fill();
+
+    dc.restore();
+}, 5);
+  </script>
+    <div class="container">
+      <section id="main_content">
+            <div class="login-form">
+                <div class="control-group">
+                    <input autocorrect="off" spellcheck="false" type="text" class="login-field userInput notstored" value="" placeholder="username" id="inputUser">
+                    <label class="login-field-icon fui-user" for="login-name"></label>
+                </div>
+
+                <div class="control-group">
+                    <input autocorrect="off" spellcheck="false" type="text" class="login-field userInput typeahead notstored" value="" placeholder="web domain" id="inputDomain">
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                </div>
+
+                <div class="control-group">
+                    <input autocorrect="off" spellcheck="false" type="text" class="login-field userInput stored" value="" placeholder="password length" id="inputLength">
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                </div>
+
+                <div class="control-group">
+                    <input autocorrect="off" spellcheck="false" type="password" class="login-field userInput typeahead notstored" value="" placeholder="secret key" id="inputPhrase">
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                </div>
+
+                <div class="control-group" id="outputInfo">
+                </div>
+
+                <div class="control-group">
+                    <a class="btn btn-primary btn-md" href="#" id="showPassword">show password</a>
+                </div>
+
+                <div class="control-group">
+                    <input autocorrect="off" spellcheck="false" style="display:none" type="text" class="login-field" value="" id="outputPassword" size="30">
+                </div>
+                <div class="control-group">
+                <button class="btn" style="display:none" data-clipboard-target="#outputPassword">
+                      <img src="assets/clippy.svg" alt="Copy to clipboard">
+                </button>
+                </div>
+                <div class="control-group help">
+                    <a class="login-link left whatisthis" href="#" id="modal-launcher">help</a>
+                    <a class="login-link right deletecache" href="#">reset</a>
+                </div>
+
+            </div>
+      </section>
+    </div>
+  </body>
+</html>
