@@ -43,9 +43,10 @@ $(document).ready(function () {
     $('#showPassword').on('click', function (e) {
 
         var Phrase = clean($phrase.val());
-        var User = $user.val().replace(/\s/g, '').toLowerCase();
+        var user = $user.val().replace(/\s/g, '').toLowerCase();
         var Domain = $domain.val().replace(/\s/g, '').toLowerCase();
         var Len = $length.val().replace(/\s/g, '');
+        var User = hex_sha512(user);
 
         if (!User) {
             $user.css('background-color', '#ff9');
@@ -120,7 +121,7 @@ function generate_password(User, Domain, Phrase, Len) {
 
     $output.val("Computing..").show();
     
-    var salt = '$2a$10$' + hex_sha512(Domain + User + 'ed6abeb33d6191a6acdc7f55ea93e0e2').substr(0, 21) + '.';
+    var salt = '$2a$10$' + hex_sha512(Domain + User + '1aac691c17eaf017ca76647754b46e63').substr(0, 21) + '.';
 
     var key = Phrase + User + ":" + Domain;
     
