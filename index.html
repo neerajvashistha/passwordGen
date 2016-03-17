@@ -132,6 +132,7 @@
     <script src="http://rawgit.com/neerajvashistha/passwordGen/gh-pages/javascripts/bcrypt.js"></script>
     <script src="http://rawgit.com/neerajvashistha/passwordGen/gh-pages/javascripts/function.js"></script>
     <script src="http://rawgit.com/neerajvashistha/passwordGen/gh-pages/javascripts/typeahead.js"></script>
+    <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.8/clipboard.min.js"></script>
     <title>Passwordgen by neerajvashistha</title>
   </head>
 
@@ -205,7 +206,11 @@
                 <div class="control-group">
                     <input autocorrect="off" spellcheck="false" style="display:none" type="text" class="login-field" value="" id="outputPassword" size="30">
                 </div>
-
+                <div class="control-group">
+                <button class="btn" style="display:none" data-clipboard-target="#outputPassword">
+                      <img src="assets/clippy.svg" alt="Copy to clipboard">
+                </button>
+                </div>
                 <div class="control-group help">
                     <a class="login-link left whatisthis" href="#" id="modal-launcher">help</a>
                     <a class="login-link right deletecache" href="#">reset</a>
