@@ -20,30 +20,49 @@
         <h1>Passwordgen</h1>
         <h2>Generate Unique Password</h2>
 
-        <section id="downloads">
-          <a href="https://github.com/neerajvashistha/passwordGen/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/neerajvashistha/passwordGen/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/neerajvashistha/passwordGen" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
       </div>
     </header>
 
     <div class="container">
       <section id="main_content">
-        <div class="container-fluid">
-          <h3 class="text-primary text-center">jQuery Playground</h3>
-          <div class="row">
-            <div class="col-xs-6">
-              <h4>#left-well</h4>
-              <div class="well" id="left-well">
-                <button class="btn btn-default target" id="target1">#target1</button>
-                <button class="btn btn-default target" id="target2">#target2</button>
-                <button class="btn btn-default target" id="target3">#target3</button>
-              </div>
+            <div class="login-form">
+                <div class="control-group">
+                    <input autocorrect="off" spellcheck="false" type="text" class="login-field userInput notstored" value="" placeholder="username" id="inputUser">
+                    <label class="login-field-icon fui-user" for="login-name"></label>
+                </div>
+
+                <div class="control-group">
+                    <input autocorrect="off" spellcheck="false" type="text" class="login-field userInput typeahead notstored" value="" placeholder="web domain" id="inputDomain">
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                </div>
+
+                <div class="control-group">
+                    <input autocorrect="off" spellcheck="false" type="text" class="login-field userInput stored" value="" placeholder="password length" id="inputLength">
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                </div>
+
+                <div class="control-group">
+                    <input autocorrect="off" spellcheck="false" type="text" class="login-field userInput stored" value="" placeholder="secret key" id="inputPhrase">
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                </div>
+
+                <div class="control-group" id="outputInfo">
+                </div>
+
+                <div class="control-group">
+                    <a class="btn btn-primary btn-large btn-block" href="#" id="showPassword">show password</a>
+                </div>
+
+                <div class="control-group">
+                    <input autocorrect="off" spellcheck="false" style="display:none" type="text" class="login-field" value="" id="outputPassword" size="30">
+                </div>
+
+                <div class="control-group help">
+                    <a class="login-link left whatisthis" href="#" id="modal-launcher">help</a>
+                    <a class="login-link right deletecache" href="#">reset</a>
+                </div>
+
             </div>
-        
-          </div>
-        </div>
 
       </section>
     </div>
