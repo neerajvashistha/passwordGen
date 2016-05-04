@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    
+<meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../../css/styles.css" />
+    </head>
+<body>
+    <div id="mainPopup">
+    <div class="login">
+        <div class="login-screen">
+            <div class="app-title">
+                <h1 style="color:#B5E853";font-size: "30px";line-height: "1.5";font-weight: "bold";
+font-family: "Monaco", "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;">./passwordGen</h1>
+
+           </div>
+            
+            <div class="login-form" id="form-id">
+                <div class="control-group">
+                    <input autocorrect="off" spellcheck="false" type="text" class="login-field userInput notstored" value="" placeholder="username" id="inputUser">
+                    <label class="login-field-icon fui-user" for="login-name"></label>
+                </div>
+
+                <div class="control-group">
+                    <input autocorrect="off" spellcheck="false" type="text" class="login-field userInput typeahead notstored" value="" placeholder="web domain" id="inputDomain">
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                </div>
+
+                <div class="control-group">
+                    <input autocorrect="off" spellcheck="false" type="text" class="login-field userInput stored" value="" placeholder="password length" id="inputLength">
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                </div>
+
+                <div class="control-group">
+                    <input autocorrect="off" spellcheck="false" type="password" class="login-field userInput notstored" value="" placeholder="secret key" id="inputPhrase">
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                </div>
+
+                <div class="control-group" id="outputInfo">
+                </div>
+
+                <div class="control-group">
+                    <a class="btn btn-primary btn-large btn-block" href="#" id="showPassword">Show &   <img src="icons/clippy.png" alt="Copy2clipboard"> Password</a>
+                </div>
+
+                <div class="control-group">
+                    <input size="30" autocorrect="off" spellcheck="false" style="display:none" type="text" class="login-field" value="" placeholder="your password" id="outputPassword">
+              </div>
+
+                <div class="control-group help">
+                    <a class="login-link left whatisthis" href="http://neerajvashistha.github.io/passwordGen/" target="_blank">http://passwordgen.ml</a>
+                    <a class="login-link right deletecache" href="#">reset</a>
+                </div>
+
+            </div>
+</div>            
+        </div>
+    </div>
+    <script src="../../js/scripts.js"></script>
+    <script src="../../js/clipboard.min.js"></script>
+</body>
+</html>
