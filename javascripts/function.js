@@ -136,13 +136,7 @@ function generate_password(User, Domain, Phrase, Len) {
         }
 
         $output.val(hashed).select();
-        try {
         var successful = document.execCommand('copy');
-        var msg = successful ? 'successful' : 'unsuccessful';
-        console.log('Copying text command was ' + msg);
-      } catch (err) {
-        console.log('Oops, unable to copy');
-      }
     }, function () {
         $output.val(Math.random());
     });
