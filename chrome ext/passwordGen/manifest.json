@@ -1,0 +1,19 @@
+{
+   "browser_action": {
+      "default_icon": "icons/icons19.png",
+      "default_popup": "popup.html",
+      "default_title": "passwordGen"
+   },
+   "description": "Unique passwords generation for unique usernames for all the sites.",
+   "homepage_url": "http://neerajvashistha.github.io/passwordGen/",
+   "icons": {
+      "128": "icons/icons128.png",
+      "16": "icons/icons16.png",
+      "48": "icons/icons48.png"
+   },
+   "manifest_version": 2,
+   "name": "passwordGen",
+   "short_name": "Passwords Generation",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0"
+}
